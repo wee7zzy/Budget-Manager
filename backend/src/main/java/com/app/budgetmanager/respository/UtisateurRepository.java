@@ -1,4 +1,8 @@
 package com.app.budgetmanager.respository;
 
-public interface UtisateurRepository {
+import com.app.budgetmanager.Enitiy.Utisateur;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UtisateurRepository extends JpaRepository<Utisateur, Long> {
+
 }
