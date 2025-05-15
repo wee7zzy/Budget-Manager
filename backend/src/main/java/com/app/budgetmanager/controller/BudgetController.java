@@ -16,26 +16,27 @@ public class BudgetController {
     private BudgetService budgetService;
 
 
-
     @GetMapping("/list")
-    public List<Budget> getBudgetList(){
-        return  budgetService.GetAllBudget();
+    public List<Budget> getBudgetList() {
+        return budgetService.GetAllBudget();
     }
 
 
     @PostMapping("/ajouter")
-    public Budget ajoutBudget(@RequestBody Budget budget){
+    public Budget ajoutBudget(@RequestBody Budget budget) {
         return budgetService.AddBudget(budget);
 
     }
 
     @PutMapping("/update")
-    public Budget updateBudget(@RequestBody Budget budget){
+    public Budget updateBudget(@RequestBody Budget budget) {
         return budgetService.UpdateBudget(budget);
     }
 
 
     @DeleteMapping
-    public void deleteBudget(@PathVariable int id){
+    public void deleteBudget(@PathVariable int id) {
         budgetService.DeleteBudgetById(id);
     }
+
+}
