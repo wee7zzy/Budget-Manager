@@ -4,6 +4,8 @@ package com.app.budgetmanager.Enitiy;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Budget {
@@ -12,10 +14,9 @@ public class Budget {
     private  int id;
     private double depenseLimit;
     private double montantDepense ;
-    @ManyToOne
-    @JoinColumn(name = "categorie_id")
-    private Categorie categorie ;
 
+    @OneToMany(mappedBy = "budget")
+    private List<Transaction> transactions;
 
 
 }
