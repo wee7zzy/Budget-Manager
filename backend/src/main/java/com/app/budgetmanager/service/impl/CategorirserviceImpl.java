@@ -47,7 +47,13 @@ public class CategorirserviceImpl implements CategorieService {
         return categoryRepository.save(existingCategory);
     }
 
-
+    @Override
+    public void deleteCategory(Long id) {
+        if (!categoryRepository.existsById(id)) {
+            throw new EntityNotFoundException("Category with id " + id + " not found.");
+        }
+        categoryRepository.deleteById(id);
+    }
 
 
 }
