@@ -34,13 +34,20 @@ public class CategorirserviceImpl implements CategorieService {
 
     @Override
     public Categorie updateCategory(Long id, Categorie category) {
-        return null;
+        Categorie existingCategory = categoryRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Category with id " + id + " not found."));
+
+
+        if (!existingCategory.getName().equals(category.getName()) &&
+                categoryRepository.existsByName(category.getName())) {
+            throw new IllegalArgumentException("Category with name '" + category.getName() + "' already exists.");
+        }
+
+        existingCategory.setName(category.getName());
+        return categoryRepository.save(existingCategory);
     }
 
-    @Override
-    public void deleteCategory(Long id) {
 
-    }
 
 
 }
