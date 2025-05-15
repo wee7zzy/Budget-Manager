@@ -34,7 +34,7 @@ public class BudgetController {
     }
 
 
-    @DeleteMapping
+    @DeleteMapping("/id")
     public void deleteBudget(@PathVariable int id) {
         budgetService.DeleteBudgetById(id);
     }

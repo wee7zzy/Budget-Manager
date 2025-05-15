@@ -24,6 +24,7 @@ public class Transaction {
     @JoinColumn(name = "categorie_id")
     private Categorie categorie;
 
+    @ManyToOne
     @JoinColumn(name = "budget_id")
     private Budget budget;
 
